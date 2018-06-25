@@ -2,10 +2,15 @@
 Programmer: Johnson Qu
 
 This Arduino program contains the basic methods & strategies for a successful Sumobot. The program is split into 4 main sections.
+
 1.) Search
+
 2.) Attack
+
 3.) Evade
+
 4.) Starting Strategy
+
 
 1.) The Search methods are a critical part to this Sumobot as it is this method that locates the enemy. There are 2 ways to accomplish this.
   a.) ActiveSearch
