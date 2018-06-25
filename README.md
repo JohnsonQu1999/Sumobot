@@ -11,6 +11,7 @@ This Arduino program contains the basic methods & strategies for a successful Su
 
 4.) Starting Strategy
 
+---
 
 1.) The Search methods are a critical part to this Sumobot as it is this method that locates the enemy. There are 2 ways to accomplish this.
   a.) ActiveSearch
