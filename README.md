@@ -15,8 +15,10 @@ This Arduino program contains the basic methods & strategies for a successful Su
 ---
 
 1.) The Search methods are a critical part to this Sumobot as it is this method that locates the enemy. There are 2 ways to accomplish this.
+
   a.) ActiveSearch
     This technique involves actively looking for the enemy bot, usually by quickly turning a tight circle until the enemy bot is found. This technique is favoured if you only have sensors point in front of your Sumobot.
+    
   b.) RandomSearch
     This technique simply causes the Sumobot to drive until the ring's limits, then turning left/right, until an enemy bot is found. This technique is favoured if you have sensors all around your Sumobot.
 
