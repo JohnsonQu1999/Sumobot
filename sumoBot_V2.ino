@@ -4,11 +4,17 @@
 //Date: March 15 2018                    //
 ///////////////////////////////////////////
 
+//Revision v3.0
+
 //=== Notes BELOW ===//
-//Notice that there are many delay()'s that are called throughout the program. The delay determines the distance or angle that the sumobot turns through.
-//2018/3/18 --> ALPHA: First iteration of code complete
-//2018/3/23 --> UPDATE: Added confirmNoEnemy() method to stop the robot from calling checkLeftRight() even if there was something infront of it
-//2018/3/23 --> UPDATE: Added additional functionality. Push a button to start the 5 second countdown. See start(). That section of the code is currently commented out
+//There are many delay()'s that are called throughout the program. The delay determines the distance or angle that the sumobot turns through.
+//2018/3/15 --> ALPHA (v1.0): First iteration of code started and complete. Just making sure the basics are working.
+//2018/3/18 --> UPDATE: Added activeSearch().
+//2018/3/18 --> BETA (v2.0): Works better than expected.
+//2018/3/19 --> UPDATE: Added checkLeftRight() to reduce the time the robot spends finding the enemy. Now the bot can check left and right instead of just turning in 1 direction.
+//2018/3/23 --> UPDATE: Added confirmNoEnemy() method to stop the robot from calling checkLeftRight() even if there was something infront of it.
+//2018/3/23 --> UPDATE: Added additional functionality. Push a button to start the 5 second countdown. See start().
+//2018/3/25 --> RELEASED (v3.0): Complete. Competition over. Cleaned up code to improve readability. Added more detailed comments.
 //=== Notes ABOVE ===//
 
 //=== Credits BELOW ===//
