@@ -39,7 +39,8 @@ const int criticalDist = 50;                                          //The enem
 void setup() {
   //Initializing things
   //Methods used: start()
-  Serial.begin(9600);
+  
+  .begin(9600);
 
   for (int a = 2; a < 7; a++) {   //Setting pins as outputs
     pinMode(a, OUTPUT);
@@ -50,9 +51,7 @@ void setup() {
 
   pinMode(12, INPUT);
 
-  Serial.println("Initialized.");
-
-  start();                    //Calls the start sequence. See void start() for more info
+  start();                        //Calls the start sequence. See void start() for more info
 }
 
 //=== SETUP ABOVE ===//
@@ -68,15 +67,12 @@ void loop() {
   //If the enemy can not be seen, it will exit the attack sequence and assume that the enemy is coming from the side, so it enters the evade sequence
   //The robot simply moves back and turns; afterwhich it exits the evade sequence and begins searching again.
   //activeSearch();   //keeps turning in circles until the opponent is detected
-  //Methods used: randomSearch(), attack(), evade()
+  //Methods used: activeSearch(), attack()
 
-  //  randomSearch();   //keeps searching until the opponent is detected
-  Serial.println("searching");
+//   randomSearch();   //keeps searching until the opponent is detected
   activeSearch();
-  Serial.println("attacking");
   attack();         //keeps following until the opponent cannot be detected
-  //  Serial.println("evading");
-  //  evade();          //the robot undergoes evasive maneuvers if attack ends
+  evade();          //the robot undergoes evasive maneuvers if attack ends
 }
 
 //=== MAIN LOOP ABOVE ===// --------------------------------------------------------------------------------------------------------------------------
@@ -86,8 +82,6 @@ void loop() {
 void start() {
   //The starting sequence of the robot
   //Turn to the left, then go forwards, then stop
-  //Notes about the 5 second delay: if we leave the code as is, 5 seconds start counting down from when you plug in the power supply
-  //Or, you we can put a button and wait for a button push.
   //Methods used: left(), forward(), off()
 
   while (!digitalRead(startButton)) {
@@ -183,7 +177,6 @@ void attack() {
   while (keepAttacking) {
     forward();
     if (getDist() > criticalDist && confirmNoEnemy()) {
-      Serial.println("checking");
       keepAttacking = checkRightLeft();
     }
   }
@@ -195,12 +188,10 @@ boolean confirmNoEnemy() {
   for (int a = 0; a < 10; a++) {
     if (getDist() > criticalDist) {
       counter++;
-      Serial.println("checking 10 times");
     }
   }
 
   if (counter >= 8) {
-    Serial.println(counter);
     return true;
   }
   return false;
@@ -215,8 +206,6 @@ boolean checkRightLeft() {
     right();
     delay(100);                   //set an appropriate delay so it turns left 10° each time
     off();
-    Serial.println("check right");
-    Serial.println(getDist());
     if (getDist() < criticalDist) {
       return true;
     }
@@ -226,8 +215,6 @@ boolean checkRightLeft() {
     left();
     delay(100);                   //set an appropriate delay so it turns right 10° each time
     off();
-    Serial.println("check left");
-    Serial.println(getDist());
     if (getDist() < criticalDist) {
       return true;
     }
@@ -243,14 +230,9 @@ void evade() {
   float startTime = millis();
   float endTime = millis();
 
-//  Serial.println(endTime);
-
   while (endTime - startTime < 300) {    //checking to see how long the robot has been reversing for. Only stop this sequence once it reverses an appropriate time. Maybe 1000ms?
-    Serial.println(endTime);
     back();
-    //    if (qrd(qrd0) || qrd(qrd1) || qrd(qrd2) || qrd(qrd3)) {
-    //      break;
-    //    }
+    checkQRD();
     endTime = millis();
   }
   right();
