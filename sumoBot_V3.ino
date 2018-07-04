@@ -46,7 +46,7 @@ void setup() {
   //Initializing things
   //Methods used: start()
   
-  .begin(9600);
+  Serial.begin(9600);
 
   for (int a = 2; a < 7; a++) {   //Setting pins as outputs
     pinMode(a, OUTPUT);
