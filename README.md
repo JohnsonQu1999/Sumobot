@@ -1,5 +1,4 @@
 # Sumobot
-Programmer: Johnson Qu
 ---
 
 This Arduino program contains the basic methods & strategies for a successful Sumobot. The program is split into 4 main sections.
