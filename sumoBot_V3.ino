@@ -211,18 +211,18 @@ boolean checkRightLeft() {
   for (int a = 0; a < 4; a++) {   //set an appropriate delay so it turns left 40° in total
     right();
     delay(100);                   //set an appropriate delay so it turns left 10° each time
-    off();
     if (getDist() < criticalDist) {
       return true;
+      off();
     }
   }
 
   for (int a = 0; a < 8; a++) {   //set an appropriate delay so it turns right 80° in total
     left();
     delay(100);                   //set an appropriate delay so it turns right 10° each time
-    off();
     if (getDist() < criticalDist) {
       return true;
+      off();
     }
   }
   return false;
